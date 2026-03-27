@@ -1,0 +1,5 @@
+<div>
+    <app-ticket-item-component [nomeEvento]="'Angular Conf 2026'" [(quantidade)]="qtd" (onCancelamento)="notificarUsuario()"></app-ticket-item-component>
+    <p>{{mensagemStatus()}}</p>
+    <p>Total: R${{qtd() * 150}}</p>
+</div>
