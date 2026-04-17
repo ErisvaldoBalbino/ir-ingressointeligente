@@ -7,17 +7,15 @@ import { Component, input, model, output } from '@angular/core';
   styleUrl: './ticket-item-component.css',
 })
 export class TicketItemComponent {
-  nomeEvento = input.required<string>();
-
   quantidade = model<number>(1);
-  onCancelamento = output<string>();
+  onCancelamento = output<void>();
 
   aumentarQuantidade(): void {
-    this.quantidade.update((quantidadeAtual) => quantidadeAtual + 1);
+    this.quantidade.update(quantidadeAtual => quantidadeAtual + 1);
   }
 
   diminuirQuantidade(): void {
-    this.quantidade.update((quantidadeAtual) => quantidadeAtual - 1);
+    this.quantidade.update(quantidadeAtual => quantidadeAtual - 1);
   }
 
   cupom(evento: Event) {
@@ -26,6 +24,6 @@ export class TicketItemComponent {
   }
 
   solicitarCancelamento () {
-    this.onCancelamento.emit("Cancelado");
+    this.onCancelamento.emit();
   }
 }

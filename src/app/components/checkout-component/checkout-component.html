@@ -1,5 +1,32 @@
-<div>
-    <app-ticket-item-component [nomeEvento]="'Angular Conf 2026'" [(quantidade)]="qtd" (onCancelamento)="notificarUsuario()"></app-ticket-item-component>
-    <p>{{mensagemStatus()}}</p>
-    <p>Total: R${{qtd() * 150}}</p>
-</div>
+<app-card-component [titulo]="'Angular Conf 2026'">
+    <app-ticket-item-component [(quantidade)]="qtd" (onCancelamento)="notificarUsuario()"></app-ticket-item-component>
+    @for (ingresso of ingressos(); track ingresso.id) {
+        @switch(ingresso.tipo) {
+            @case('VIP') {
+                <hr>
+                <p>{{ ingresso.nome}} - {{ ingresso.tipo }} - {{ ingresso.preco | currency:'BRL' }} - {{ ingresso.data | date:'dd/MM/yyyy'  }}</p>
+                <p>Benefícios: {{ ingresso.descricao | resumo }}</p>
+                <p>Acesso Total</p>
+                <hr>
+            }
+            @case('MEIA') {
+                <p>{{ ingresso.nome}} - {{ ingresso.tipo }} - {{ ingresso.preco | currency:'BRL' }} - {{ ingresso.data | date:'dd/MM/yyyy'  }}</p>
+                <p>Benefícios: {{ ingresso.descricao | resumo }}</p>
+                <p>Obrigatório carteirinha</p>
+                <hr>
+            }
+            @default {
+                <p>{{ ingresso.nome}} - {{ ingresso.tipo }} - {{ ingresso.preco | currency:'BRL' }} - {{ ingresso.data | date:'dd/MM/yyyy'  }}</p>
+                <p>Benefícios: {{ ingresso.descricao | resumo }}</p>
+                <p>Acesso Padrão</p>
+            }
+        }
+    } @empty {
+        <p>Seu carrinho está vazio</
+            p>
+    }
+    <p>Total: {{ total() | currency:'BRL' }}</p>
+    @if (ingressos().length > 2) {
+        <p>Você ganhou um brinde!</p>
+    }
+</app-card-component>
