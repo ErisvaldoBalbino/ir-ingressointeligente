@@ -1,0 +1,10 @@
+app-card-component {
+    --cor-titulo: purple;
+}
+
+.ingresso-destaque {
+    border: 3px solid #c5c51a;
+    background-color: #fff5ba;
+    padding: 10px;
+    border-radius: 8px;
+}
