@@ -1,12 +1,11 @@
 import { Component, computed, signal } from '@angular/core';
-import { TicketItemComponent } from '../ticket-item-component/ticket-item-component';
 import { CardComponent } from '../card-component/card-component';
 import { CurrencyPipe, DatePipe, NgClass } from '@angular/common';
 import { ResumoPipe } from '../../resumo-pipe';
 
 @Component({
   selector: 'app-checkout-component',
-  imports: [TicketItemComponent, CardComponent, CurrencyPipe, DatePipe, ResumoPipe, NgClass],
+  imports: [CardComponent, CurrencyPipe, DatePipe, ResumoPipe, NgClass],
   templateUrl: './checkout-component.html',
   styleUrl: './checkout-component.css',
 })

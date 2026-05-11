@@ -1,5 +1,4 @@
 <app-card-component [titulo]="'Angular Conf 2026'">
-    <app-ticket-item-component [(quantidade)]="qtd" (onCancelamento)="notificarUsuario()"></app-ticket-item-component>
     <ul style="list-style: none; padding: 0">
         @for (ingresso of ingressos(); track ingresso.id) {
             <li [ngClass]="{'ingresso-destaque': ingresso.tipo === 'VIP'}" style="margin-bottom: 15px;">
