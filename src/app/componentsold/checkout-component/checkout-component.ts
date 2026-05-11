@@ -1,5 +1,5 @@
 import { Component, computed, signal } from '@angular/core';
-import { CardComponent } from '../card-component/card-component';
+import { CardComponent } from '../../components/card-component/card-component';
 import { CurrencyPipe, DatePipe, NgClass } from '@angular/common';
 import { ResumoPipe } from '../../resumo-pipe';
 
