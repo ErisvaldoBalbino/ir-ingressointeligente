@@ -1,15 +1,17 @@
 import { Component, computed, signal } from '@angular/core';
 import { CardComponent } from '../card-component/card-component';
-import { CurrencyPipe, DatePipe, NgClass } from '@angular/common';
+import { CurrencyPipe, DatePipe } from '@angular/common';
 import { ResumoPipe } from '../../resumo-pipe';
+import { RouterLink } from '@angular/router';
+
 @Component({
   selector: 'app-dashboard-component',
-  imports: [CardComponent, CurrencyPipe, DatePipe, NgClass, ResumoPipe],
+  imports: [CardComponent, CurrencyPipe, DatePipe, ResumoPipe, RouterLink],
   templateUrl: './dashboard-component.html',
   styleUrl: './dashboard-component.css',
 })
 export class DashboardComponent {
-    nome = signal("Nome...")
+  nome = signal("Nome...")
   mensagemStatus = signal("Aguardando finalização...");
   total = computed(() => this.ingressos().reduce((acc, ingresso) => acc + ingresso.preco, 0));
   ingressos = signal([
@@ -18,7 +20,6 @@ export class DashboardComponent {
     { id: 3, nome: 'Ingresso 3', tipo: 'STANDARD', data: new Date('2026-04-17T19:09:38'), preco: 100, descricao: 'Nenhum', lotePercentual: 50 },
   ]);
   qtd = signal(this.ingressos().length);
-
 
   notificarUsuario() {
     this.mensagemStatus.set("O usuário solicitou o cancelamento da compra!");

@@ -1,4 +1,12 @@
+<header>
+  <nav>
+    <ul style="display: flex; gap: 15px; list-style: none; padding: 0px;">
+      <li><a routerLink="/home" style="text-decoration: none;">Início</a></li>
+      <li><a routerLink="/404" style="text-decoration: none;">Teste 404</a></li>
+    </ul>
+  </nav>
+</header>
+
 <main class="main">
-  <app-dashboard-component />
+  <router-outlet />
 </main>
-<router-outlet />

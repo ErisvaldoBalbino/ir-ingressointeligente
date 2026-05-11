@@ -8,3 +8,22 @@ app-card-component {
     padding: 10px;
     border-radius: 8px;
 }
+
+.ingresso {
+    border: 3px solid #aaaaaa;
+    background-color: #f5f1ff;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.botao-detalhes {
+    height: 30px;
+    background-color: #f5f1ff;
+    border-radius: 4px;
+    border: 1px solid;
+    cursor: pointer;
+}
+
+.botao-detalhes:hover {
+    background-color: #e9e3fd
+}

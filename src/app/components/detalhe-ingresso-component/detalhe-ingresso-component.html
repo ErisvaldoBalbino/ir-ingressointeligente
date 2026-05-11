@@ -1,1 +1,16 @@
-<p>detalhe-ingresso-component works!</p>
+@if (ingressoSelecionado(); as ingresso) {
+    <h2>Detalhes do {{ ingresso.nome }}</h2>
+    
+    <ul style="list-style: none; padding: 0;">
+        <li>Tipo: {{ ingresso.tipo }}</li>
+        <li>Preço: {{ ingresso.preco | currency:'BRL' }}</li>
+        <li>Benefícios: {{ ingresso.descricao }}</li>
+        <li>Data: {{ ingresso.data | date:'long' }}</li>
+    </ul>
+
+    <a routerLink="/home">Voltar para o Início</a>
+
+} @else {
+    <h2>Ingresso não encontrado!</h2>
+    <a routerLink="/home">Voltar para o Início</a>
+}
